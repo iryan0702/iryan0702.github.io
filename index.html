@@ -1,107 +1,29 @@
-<!DOCTYPE HTML>
 <html>
-  <head>
-    <html>title and hotdog tab title</html>
-  </head>
-  <body>
+<head>
+    <title>Mochibi</title>
+    <style>
+        canvas {display: inline-block;vertical-align: top; border: 1px solid black; padding: 10px;}
+        pre {border: 0px solid black;display: inline-block;width: 1280px;height: 0px;background-color: #222222;}
+		ul.NAV {list-style-type: none;margin: 0;padding-left: 0px;overflow: visible;background-color: #006a6a;position: inherit;width: 100%; z-index: 1000}
+		li.NAV {float: left ;background-color: #444444;}
+		li a {display: block;color: white;text-align: center;padding: 14px 30px;text-decoration: none;}
+		li a:hover:not(.active) {background-color: #222222;}
+		#TS2 {color: #004d4d;font-family: sans-serif;font-weight: 500;font-size: 18px;}
+    </style>
+</head>
 
-    <h1>The Hotdog is coming.</h1>
+<body style="background-color: rgb(250, 250, 250)">
+	<!-- <ul id="TS2" class="NAV">
+		<li class="NAV"><a href="HowToPlay.pdf">How To Play</a></li>
+		<li class="NAV"><a href="Archive.pdf">Archive</a></li>
+		<li class="NAV"><a href="Tips.pdf">Tips</a></li>
+		<li class="NAV"><a href="Credits.pdf">Credits</a></li>
+	</ul> -->
+	<br>
+    <center>
+        <canvas id="Canvas" width="1000" height="1000"></canvas>
+		<pre id="console"></pre></center>
+        <script src="bundle.js"></script>
 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error <a href="https://google.com" target="_blank">dolorem dolor</a> omnis libero voluptatum porro magnam deleniti, odit minima iure tempora delectus ad aliquid blanditiis fugit, praesentium obcaecati? Repellat, modi.</p>
-   
-    <ul>
-      <li>food</li>
-      <li>food</li>
-      <li>food</li>
-    </ul>
-    <ol>
-      <li>food</li>
-      <li>food</li>
-      <li>food</li>
-    </ol>
-    <table>
-      <thead>
-        <tr>
-          <th>a</th>
-          <th>b</th>
-          <th>c</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>hotdog</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <br><hr><hr><hr><hr><hr><br>
-
-    <form action="process.php" method="POST">
-      <div>
-        <Label>Food Time</Label>
-        <input type="text" name="Food" placeholder="Food!">
-      </div>
-      <br>
-      <div>
-        <Label>Eat Time</Label>
-        <input type="text" name="Eat">
-      </div>
-      <br>
-      <div>
-        <Label>Eatmail</Label>
-        <input type="email" name="Email">
-      </div>
-      <br>
-      <div>
-        <Label>Eat comment</Label>
-        <textarea name="Comment"></textarea>
-      </div>
-      <br>
-      <div>
-        <Label>hotdog</Label>
-        <select name="hotdog">
-          <option value="sandwich">is a sandwich</option>
-          <option value="burger">is a burger</option>
-        </select>
-      </div>
-      <br>
-      <div>
-        <Label>Hotdog num</Label>
-        <input type="number" name="HotdogNum">
-      </div>
-      <br>
-      <br>
-      <div>
-        <Label>When does he arrive?</Label>
-        <input type="date" name="Date">
-      </div>
-      <br>
-      <input type="submit" name="submit" value="Submit">
-    </form>
-
-    <button>stress</button>
-
-    <br>
-    W I D E H O T D O G
-    <br>
-    <a href="images/hotdog.jpg">
-      <img src="images/hotdog.jpg" alt="secret hotdog text" width="600" height="200">
-    </a>
-
-    <blockquote cite="lorem">
-      blockquote yay Lorem ipsum dolor sit amet consectetur adipisicing elit. Id maxime minima corrupti cum aliquid dolores praesentium, voluptate atque reiciendis itaque sequi ipsa necessitatibus numquam fugiat in inventore neque autem eveniet?
-    </blockquote>
-
-    <p>Not approved by the <abbr title="National Hotdog Association">NHA</abbr></p>
-
-    <p><cite>Hotdoggery Assistance</cite> by Traversy Media from https://www.youtube.com/watch?v=UB1O30fR-EE</p>
-
-  </body>
+</body>
 </html>
