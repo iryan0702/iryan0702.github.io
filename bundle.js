@@ -2311,6 +2311,8 @@ ctxElement = document.getElementById("Canvas");
 ctx = ctxElement.getContext("2d");
 const canvas = document.querySelector('Canvas')
 const rect = canvas.getBoundingClientRect()
+width = rect.width
+height = rect.width
 
 // global vars and settings
 chibis = []
@@ -2318,10 +2320,8 @@ chibis = []
 initialized = false
 x = 0
 y = 0
-width = rect.width
-height = rect.width
 
-refreshRate = 20
+refreshRate = 33
 ticksPerWiggle = 4
 ticks = 1
 
@@ -2383,8 +2383,13 @@ function initalizeGame(){
 }
 
 function updateCursorPosition(canvas, event) {
-    x = Math.round(event.clientX - rect.left - 10)
-    y = Math.round(event.clientY - rect.top - 10)
+    var rect = canvas.getBoundingClientRect(), // abs. size of element
+    width = rect.width
+    height = rect.width
+    scaleX = canvas.width / width,    // relationship bitmap vs. element for x
+    scaleY = canvas.height / height;
+    x = Math.round((event.clientX - rect.left - 10) * scaleX)
+    y = Math.round((event.clientY - rect.top) - 10 * scaleY)
     
     touchChibi1 = -1
     touchChibi2 = -1
