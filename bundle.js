@@ -1044,6 +1044,9 @@ class Generator{
         RNG3 = util.propC(1.2,0.8,ref.eyeRand3)
         RNG4 = util.propC(1.2,0.8,ref.eyeRand4)
 
+        if(ref.dragged){
+            eyeStyle = 8
+        }
         //The eye glossary!
         switch(eyeStyle){ //(I used a weird format for case here to avoid scope issues + my IDE was being weird)
             case 0:{ //Hollow Beanz
@@ -1180,6 +1183,9 @@ class Generator{
         RNG3 = util.propC(1.2,0.8,ref.mouthRand3)
         RNG4 = util.propC(1.2,0.8,ref.mouthRand4)
     
+        if(ref.dragged){
+            mouthStyle = 6
+        }
         //The mouth glossary!
         switch(mouthStyle){
             case 0:{ //Emotionless
@@ -2017,6 +2023,8 @@ class Ref{
         this.ctx = ctx
         this.util = new Util(ctx)
         this.baseSeed = baseSeed
+        this.hovered = false
+        this.dragged = false
 
         // list of available options [101 - angry shadow temporarily disabled for later layering fixes]
         this.allAccessories = [100,102,200,201,202,300,301,302,303,304,305,306,400,401,402,403,404,405,406,407,408,409,410,500,501,502,503,504,505,506,507,508] 
@@ -2321,8 +2329,8 @@ initialized = false
 x = 0
 y = 0
 
-refreshRate = 33
-ticksPerWiggle = 4
+refreshRate = 50
+ticksPerWiggle = 3
 ticks = 1
 
 // keep track of which chibis are touched by mouse (first two), and grabbed (for dragging)
@@ -2342,6 +2350,10 @@ function gameTick(){
 
     for(let i = 0; i < chibis.length; i++){
         if(grabChibi != i){
+            xDif = x - chibis[i].offsetX
+            yDif = y - chibis[i].offsetY
+            chibis[i].angleX = Math.min(20, Math.max(-20, xDif*-0.1))
+            chibis[i].angleY = Math.min(-5, Math.max(-25, (yDif*-0.1)-15))
             builder.render(ctx, chibis[i], chibis[i].offsetX, chibis[i].offsetY, 0.12)
         }
     }
@@ -2415,6 +2427,7 @@ function updateCursorPosition(canvas, event) {
 canvas.addEventListener('mousedown', function(e) {
     updateCursorPosition(canvas, e)
     grabChibi = touchChibi1
+    chibis[grabChibi].dragged = true
 })
 
 canvas.addEventListener('mousemove', (e) => {
@@ -2424,6 +2437,7 @@ canvas.addEventListener('mousemove', (e) => {
 canvas.addEventListener('mouseup', function(e) {
     updateCursorPosition(canvas, e)
 
+    chibis[grabChibi].dragged = false
     if(grabChibi >= 0 && touchChibi1 >= 0 && touchChibi2 >= 0){
         let theOther = (grabChibi == touchChibi1 ? touchChibi2 : touchChibi1)
 
